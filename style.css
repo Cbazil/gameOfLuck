@@ -1,0 +1,23 @@
+body {
+    font-size: 15pt;
+    margin: 0px;
+    width: 100%;
+}
+#header {
+  height: 100px;
+  width: 100%;
+  margin: 0px;
+  display: inline-grid;
+  grid-template-columns: 70% 30%;
+  background-color: #00719DFF;
+  padding: 10px;
+  color: white;
+}
+
+#game-name {
+  width: 95%;
+}
+#player-score {
+  width: 100%;
+  align-self: center;
+}
