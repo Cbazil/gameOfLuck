@@ -13,7 +13,7 @@ var randomNumber = (min, max) =>{
 console.log(randomNumber(5, 15));
 */
 
-
-getNumber = () =>{
-  console.log("Clicked!");
+getNumber = () => {
+  console.log(document.getElementById("hole 1").innerHTML());
+  // console.log("Clicked!");
 }
