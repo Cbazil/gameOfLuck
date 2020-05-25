@@ -4,7 +4,7 @@ body {
     width: 100%;
 }
 #header {
-  height: 100px;
+  height: 70px;
   width: 100%;
   margin: 0px;
   display: inline-grid;
@@ -21,8 +21,12 @@ body {
   position: relative;
   width: 100%;
   text-align: center;
-  margin-top: -5px;
+  margin-top: -8px;
 }
+#player-score > h4 {
+  margin-top: -15px;
+}
+
 #body {
   margin: 7%;
   width: 100%;

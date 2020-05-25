@@ -17,22 +17,22 @@
 <body>
   <div id="header">
     <div id="game-name">
-     <h1 class="gameName">Leep Of Luck</h1>
+     <h2 class="gameName">Leep Of Luck</h2>
     </div>
     <div id="player-score">
-      <h2>Score</h2>
-      <h3>0</h3>
+      <h3>Score</h3>
+      <h4>0</h4>
     </div>
   </div>
   <div id="body">
-    <div id="holes">
-      <div id="hole 1" class="h" onclick={getNumber()}></div>
-      <div id="hole 2" class="h" onclick={getNumber()}></div>
-      <div id="hole 3" class="h" onclick={getNumber()}></div>
-      <div id="hole 4" class="h" onclick={getNumber()}></div>
-      <div id="hole 5" class="h" onclick={getNumber}></div>
-      <div id="hole 6" class="h" onclick=
-      {getNumber()}></div>
+    <div id="holes" class="test">
+      <div id="hole 1" class="h" onclick={getNumber(this.id)}>1</div>
+      <div id="hole 2" class="h" onclick={getNumber(this.id)}>2</div>
+      <div id="hole 3" class="h" onclick={getNumber(this.id)}>3</div>
+      <div id="hole 4" class="h" onclick={getNumber(this.id)}>4</div>
+      <div id="hole 5" class="h" onclick={getNumber(this.id)}>5</div>
+      <div id="hole 6" class="h" onclick 
+        ={getNumber(this.id)}>6</div>
     </div>
   </div>
   <!-- Project -->
