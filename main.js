@@ -10,8 +10,6 @@ console.log(randomNumber(5, 15));
 
 */ 
 
-// localStorage.setItem("playerChoice", 0);
-
 getNumber = (id) => {
   console.log("Clicked");
   let ourNum;
@@ -33,10 +31,15 @@ getNumber = (id) => {
   
   var ranNum2 = localStorage.getItem("wrongHole");
   var playerNum2 = localStorage.getItem("playerChoice");
-  
+  var score = score || 0;
   if (ranNum2 === playerNum2) {
     alert("You Died!");
+  } else if (ranNum2 !== playerNum2) {
+    score = score += 200;
+    localStorage.setItem("playerScore", score);
+    console.log(localStorage.getItem("playerScore"))
   }
 }
+
 
  
