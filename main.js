@@ -43,5 +43,10 @@ getNumber = (id) => {
     localStorage.setItem("playerScore", score);
   } 
   document.getElementById("playerScore").innerText = pscore;
+  var getScore = localStorage.getItem("playerScore");
+  if (getScore > 2000) {
+    document.getElementById("hole 6").style.display = "none";
+  }
 }
+
 
