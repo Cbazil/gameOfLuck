@@ -12,10 +12,10 @@ console.log(randomNumber(5, 15));
 localStorage.setItem("playerScore", 0);
 
 getNumber = (id) => {
-  console.log("LSPlayerScore: ", localStorage.getItem("playerScore"));
+  // console.log("LSPlayerScore: ", localStorage.getItem("playerScore"));
   let ourNum;
   let ourArr = [];
-  for(i = 0; i < 6; i++){
+  for(i = 0; i < 7; i++){
     let num = document.getElementById(id);
     if (num.innerHTML == i){
       ourNum = i;
@@ -35,11 +35,13 @@ getNumber = (id) => {
   var pscore = Number(localStorage.getItem("playerScore"));
   var score;
   if (ranNum2 === playerNum2) {
-    alert("You Died!");
+    pscore = 0;
+    localStorage.setItem("playerScore", pscore);
+    alert("Game Over!");
   } else {
     score = pscore += 200;
     localStorage.setItem("playerScore", score);
   } 
-  console.log(localStorage.getItem("playerScore"));
+  document.getElementById("playerScore").innerText = pscore;
 }
 
