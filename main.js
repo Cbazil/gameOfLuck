@@ -44,8 +44,14 @@ getNumber = (id) => {
   } 
   document.getElementById("playerScore").innerText = pscore;
   var getScore = localStorage.getItem("playerScore");
-  if (getScore > 2000) {
+  if (pscore > 2000) {
     document.getElementById("hole 6").style.display = "none";
+  } if (pscore > 4000){
+    document.getElementById("hole 5").style.display = "none";
+  } if (pscore > 6000){
+    document.getElementById("hole 4").style.display = "none";
+  } if (pscore > 8000){
+    document.getElementById("hole 3").style.display = "none";
   }
 }
 
