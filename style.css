@@ -36,7 +36,7 @@
 #holes {
   width: 100%;
   display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 2%;
   position: relative;
   
@@ -74,13 +74,39 @@ html {
   }
   #header {
     height: 6vh;
-    width: 100%;
-    /* background-color: #FFFF66; */
-    margin-top: -5px;
-    padding: 5px 40px 5px 30px;
+    width: 95%;
+   /* background-color: #FFFF66; */
+    margin: 0px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    /* padding: 5px 40px 5px 30px;*/
+  }
+  #gameName {
+   /*  background-color: #ccc; */
+    text-align: center;
+  }
+  #wRecord {
+    /* background-color: #ddd; */
+    text-align: center;
+    margin-top: -8px;
+  }
+  #wRecord > h3 {
+    margin-top: -18px;
+  }
+  #score-container {
+    width: 98%;
+    position: absolute;
+    top: 35vh;
+    background-color: peach;
+  }
+  #score-container > h1 {
+    font-size: 60px;
+  }
+  #score-container > h2 {
+    font-size: 35px;
   }
 }
-
 @media (min-width: 450px) {
   body {
    width: inherit;
@@ -93,4 +119,32 @@ html {
    top: 0;
    bottom: 0;
   }
+}
+
+#gameName  {
+  color: #36835CFF;
+}
+#wRecord {
+  color: #fff;
+}
+#score-container {
+  color: #fff;
+  text-align: center;
+}
+#holes {
+  width: 74%;
+  /* background-color: pink; */
+  height: 10vh;
+  display: inline-flex;
+  position: absolute;
+  bottom: 4vh;
+  margin-left: 12vw;
+}
+
+.h {
+  width: 100%;
+  height: 40px;
+  border-radius: 70%;
+  background-color: limegreen;
+  margin: 5px 1px;
 }
