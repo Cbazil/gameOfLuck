@@ -1,4 +1,4 @@
-body {
+/* body {
     font-size: 15pt;
     margin: 0px;
     width: 100%;
@@ -47,4 +47,38 @@ body {
   height: 45px;
   border-radius: 70%;
   background-color: limegreen;
+}
+*/
+html {
+ /* height: auto; */
+  height: 100%;
+  max-width: 100%;
+  width: auto;
+}
+@media (max-width : 450px) {
+  body {
+    width: inherit;
+    height: inherit;
+    background-size: cover;
+    background-image: URL("imgs/boxroomOneMobile.png");
+    background-repeat: no-repeat;
+    background-color: blue;
+     position: fixed; 
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@media (min-width: 450px) {
+  body {
+   width: inherit;
+   height: inherit;
+   background-size: cover;
+   background-image: URL("imgs/boxroomOne.png");
+   background-repeat: no-repeat;
+   background-color: blue;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+  }
 }
