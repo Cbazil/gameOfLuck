@@ -12,34 +12,13 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css">
   
-  <!-- Vue -->
-  <script src="https://unpkg.com/vue"></script>
+  <!-- Vue CDN -->
+  <!-- <script src="https://unpkg.com/vue"></script> -->
+  <script src="vue.js"></script>
 </head>
 
 <body>
-  <!-- <div id="header">
-     <div id="game-name">
-     <h2 class="gameName">Leep Of Luck</h2>
-    </div>
-    <div id="player-score">
-      <h3>Score</h3>
-      <h4 id="playerScore">0</h4>
-    </div>
-  </div>
-  -->
-  <!-- <div id="body">
-   <div id="holes" class="test">
-      <div id="hole 1" class="h" onclick={getNumber(this.id)}>1</div>
-      <div id="hole 2" class="h" onclick={getNumber(this.id)}>2</div>
-      <div id="hole 3" class="h" onclick={getNumber(this.id)}>3</div>
-      <div id="hole 4" class="h" onclick={getNumber(this.id)}>4</div>
-      <div id="hole 5" class="h" onclick={getNumber(this.id)}>5</div>
-      <div id="hole 6" class="h" onclick 
-        ={getNumber(this.id)}>6</div>
-    </div>
-    
-  </div>
-  -->
+
  <div id="interface">
     <div id="container">
       <div id="header">
@@ -51,20 +30,19 @@
       </div>
       <div id="score-container">
         <h2 id="textScore">Score</h2>
-        <h1 id="playerScore">0</h1>
+        <h1 id="playerScore">{{ pscore }}</h1>
       </div>
       <div id="holes">
-        <div id="hole 1" class="h" onclick={getNumber(this.id)}>1</div>
-        <div id="hole 2" class="h" onclick={getNumber(this.id)}>2</div>
-        <div id="hole 3" class="h" onclick={getNumber(this.id)}>3</div>
-        <div id="hole 4" class="h" onclick={getNumber(this.id)}>4</div>
-        <div id="hole 5" class="h" onclick={getNumber(this.id)}>5</div>
-        <div id="hole 6" class="h" onclick={getNumber(this.id)}>6</div>
+        <div id="hole 1" class="h" @click="holeOne">1</div>
+         <div id="hole 2" class="h" @click="holeTwo">2</div>
+        <div id="hole 3" class="h" @click="holeThree">3</div>
+        <div id="hole 4" class="h" @click="holeFour">4</div> 
+        <div id="hole 5" class="h" @click="holeFive">5</div>
+        <div id="hole 6" class="h" @click="holeSix">6</div>
       </div>
     </div>
  </div>
   <!-- Project -->
   <script src="main.js"></script>
-  <!-- <script src="vueComp.js"></script> -->
 </body>
 </html>
