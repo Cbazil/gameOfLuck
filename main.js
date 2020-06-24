@@ -15,9 +15,18 @@ console.log(randomNumber(5, 15));
 new Vue({
   el: "#interface",
   data: {
-    pscore: Number(localStorage.getItem("pscore")),
-    pchoice: 0,
+    pscore: undefined,
+    pchoice: undefined,
     holes: 6,
+  },
+  mounted(){
+    if(localStorage.getItem("pscore")) {
+      try {
+      this.pscore = Number(localStorage.getItem("pscore"));
+      } catch(e){
+        localStorage.removeItem("pscore")
+      }
+    }
   },
   /* methods: {
     holeOne() {
@@ -91,22 +100,45 @@ new Vue({
   } */
    methods: {
      holeOne() {
-       console.log("clicked!")
+       this.pchoice = 1;
+       this.compareRandom();
      },
      holeTwo() {
-       console.log("clicked 2.0")
+       this.pchoice = 2;
+       this.compareRandom();
      },
      holeThree() {
-       console.log("clicked 3.0")
+       this.pchoice = 3;
+       this.compareRandom();
      },
      holeFour() {
-       console.log("clicked 4.0")
+       this.pchoice = 4;
+       this.compareRandom();
      },
      holeFive() {
-       console.log("clicked 5.0")
+       this.pchoice = 5;
+       this.compareRandom();
      },
      holeSix() {
-       console.log("clicked 6.0")
+       this.pchoice = 6;
+       this.compareRandom();
+     },
+     compareRandom() {
+       let ourArr = [];
+       for (i = 0; i < this.holes; i++) {
+         ourArr.push(i);
+       }
+       let ranNum = Math.ceil(Math.random() * ourArr.length);
+       if (this.pchoice === ranNum) {
+         this.pscore = 0;
+         localStorage.setItem("pscore", this.pscore);
+         alert("Game Over!");
+       } else {
+         this.pscore = this.pscore += 200;
+         localStorage.setItem("pscore", this.pscore);
+       }
+       // console.log("pchoicee: ", this.pchoice);
+       // console.log("ranNum: ", ranNum);
      }
    }
 })
