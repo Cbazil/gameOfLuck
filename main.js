@@ -11,7 +11,7 @@ console.log(randomNumber(5, 15));
 */ 
 
  localStorage.setItem("pscore", 0);
- localStorage.setItem("record", 0);
+ 
 
 new Vue({
   el: "#interface",
@@ -26,6 +26,7 @@ new Vue({
     toTwo: false,
   },
   mounted(){
+
     if(localStorage.getItem("pscore")) {
       try {
       this.pscore = Number(localStorage.getItem("pscore"));
@@ -33,6 +34,9 @@ new Vue({
         localStorage.removeItem("pscore")
       }
     };
+    if(!localStorage.record){
+      localStorage.setItem("record", 0);
+    }
     if(localStorage.getItem("record")) {
       try {
       this.record = Number(localStorage.getItem("record"));
@@ -102,13 +106,13 @@ new Vue({
       if (this.pscore > 12000) {
         this.holes = 2;
         this.toTwo = true;
-      };
-      if (this.pscore > this.record) {
-        this.record = this.pscore;
-        localStorage.setItem("record", this.record);
       }
      // console.log("Score: ", this.pscore);
      //  console.log("Num of Holes: ", this.holes)
+     if (this.pscore > this.record) {
+       this.record = this.pscore;
+       localStorage.setItem("record", this.record);
+      }
      }
    }
 })
