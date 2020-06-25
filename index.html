@@ -35,10 +35,10 @@
       <div id="holes">
         <div id="hole 1" class="h" @click="holeOne"></div>
          <div id="hole 2" class="h" @click="holeTwo"></div>
-        <div id="hole 3" class="h" @click="holeThree"></div>
-        <div id="hole 4" class="h" @click="holeFour"></div> 
-        <div id="hole 5" class="h" @click="holeFive"></div>
-        <div id="hole 6" class="h" @click="holeSix"></div>
+        <div id="hole 3" class="h" v-if="!toTwo" @click="holeThree"></div>
+        <div id="hole 4" class="h" v-if="!toThree" @click="holeFour"></div> 
+        <div id="hole 5" class="h" v-if="!toFour" @click="holeFive"></div>
+        <div id="hole 6" class="h" v-if="!toFive" @click="holeSix"></div>
       </div>
     </div>
  </div>
