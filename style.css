@@ -143,8 +143,13 @@ html {
 
 .h {
   width: 100%;
-  height: 40px;
-  border-radius: 70%;
-  background-color: limegreen;
+  height: 50px;
+  /* border-radius: 70%; */
+  background-size: contain;
+  background-image: URL("imgs/hole.png");
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 2;
+  /* background-color: limegreen; */
   margin: 5px 1px;
 }

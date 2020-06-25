@@ -26,7 +26,7 @@ new Vue({
       } catch(e){
         localStorage.removeItem("pscore")
       }
-    }
+    };
   },
   /* methods: {
     holeOne() {
