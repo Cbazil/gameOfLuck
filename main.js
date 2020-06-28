@@ -20,6 +20,7 @@ new Vue({
     record: undefined,
     pchoice: undefined,
     holes: 6,
+    addOn: false,
     toFive: false,
     toFour: false,
     toThree: false,
@@ -42,6 +43,16 @@ new Vue({
       this.record = Number(localStorage.getItem("record"));
       } catch(e) {
         localStorage.removeItem("record")
+      }
+    }
+    if(!localStorage.addOn){
+      localStorage.setItem("addOn", false);
+    } 
+    if(localStorage.getItem("addOn")){
+      try {
+        this.addOn = localStorage.getItem("addOn")
+      } catch(e){
+        localStorage.removeItem("addOn")
       }
     }
   },
@@ -87,7 +98,10 @@ new Vue({
          alert("Game Over!");
        } else {
          this.pscore = this.pscore += 200;
+         this.addOn = true;
          localStorage.setItem("pscore", this.pscore);
+         this.addAmount();
+         localStorage.setItem("addOn", false);
        }
        // console.log("pchoicee: ", this.pchoice);
        // console.log("ranNum: ", ranNum);
@@ -107,12 +121,16 @@ new Vue({
         this.holes = 2;
         this.toTwo = true;
       }
+      
      // console.log("Score: ", this.pscore);
      //  console.log("Num of Holes: ", this.holes)
      if (this.pscore > this.record) {
        this.record = this.pscore;
        localStorage.setItem("record", this.record);
       }
+     },
+     addAmount() {
+       localStorage.setItem("addOn", true);
      }
    }
 })

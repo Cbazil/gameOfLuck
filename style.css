@@ -102,6 +102,11 @@ html {
   }
   #score-container > h1 {
     font-size: 60px;
+    margin-top: -25px;
+  }
+  #score-container > p {
+    margin-top: -28px;
+    margin-left: -5px;
   }
   #score-container > h2 {
     font-size: 35px;
