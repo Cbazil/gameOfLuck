@@ -54,10 +54,11 @@ html {
   height: 100%;
   max-width: 100%;
   width: auto;
+  margin: 0;
 }
-#interface, #container {
+#interface, #container, #endGame {
   position: fixed;
-  width: 98%;
+  width: 100%;
   height: inherit;
 }
 @media (max-width : 450px) {
@@ -71,6 +72,31 @@ html {
      position: fixed; 
     top: 0;
     bottom: 0;
+  }
+  #endGame {
+    width: inherit;
+    height: inherit;
+    background-size: cover;
+    background-image: URL("imgs/GameOver.png");
+    background-repeat: no-repeat;
+    background-color: #E3054FFF;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    margin: 0;
+    margin-left: -8px;
+    text-align: center;
+  }
+  #endGame > button {
+    position: relative;
+    top: 50%;
+    border-radius: 6px;
+    height: 30px;
+    font-size: 20px;
+    border: 2px solid black;
+    background: aliceblue;
+    color: black;
   }
   #header {
     height: 6vh;

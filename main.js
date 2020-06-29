@@ -25,6 +25,7 @@ new Vue({
     toFour: false,
     toThree: false,
     toTwo: false,
+    gameOver: false,
   },
   mounted(){
 
@@ -53,6 +54,16 @@ new Vue({
         this.addOn = localStorage.getItem("addOn")
       } catch(e){
         localStorage.removeItem("addOn")
+      }
+    } 
+    if(!localStorage.gameOver){
+      localStorage.setItem("gameOver", false)
+    }
+    if(localStorage.getItem("gameOver")){
+      try {
+        this.gameOver = localStorage.getItem("gameOver")
+      } catch(e){
+        localStorage.removeItem("gameOver")
       }
     }
   },
@@ -95,7 +106,7 @@ new Vue({
          this.toThree = false;
          this.toTwo = false;
          localStorage.setItem("pscore", this.pscore);
-         alert("Game Over!");
+         this.gameOver = true;
        } else {
          this.pscore = this.pscore += 200;
          this.addOn = true;
@@ -131,6 +142,9 @@ new Vue({
      },
      addAmount() {
        localStorage.setItem("addOn", true);
+     },
+     newGame() {
+       this.gameOver = false;
      }
    }
 })

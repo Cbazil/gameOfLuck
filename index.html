@@ -20,7 +20,7 @@
 <body>
 
  <div id="interface">
-    <div id="container">
+    <div v-if="!gameOver" id="container">
       <div id="header">
         <div id="gameName"><h2>Lucky Holes</h2></div>
         <div id="wRecord">
@@ -41,6 +41,9 @@
         <div id="hole 5" class="h" v-if="!toFour" @click="holeFive"></div>
         <div id="hole 6" class="h" v-if="!toFive" @click="holeSix"></div>
       </div>
+    </div>
+    <div v-if="gameOver" id="endGame">
+      <button @click="newGame">Play Again</button>
     </div>
  </div>
   <!-- Project -->
