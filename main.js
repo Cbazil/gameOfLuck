@@ -10,7 +10,7 @@ console.log(randomNumber(5, 15));
 
 */ 
 
- localStorage.setItem("pscore", 0);
+localStorage.setItem("pscore", 0);
  
 
 new Vue({
@@ -26,9 +26,9 @@ new Vue({
     toThree: false,
     toTwo: false,
     gameOver: false,
+    top100: []
   },
   mounted(){
-
     if(localStorage.getItem("pscore")) {
       try {
       this.pscore = Number(localStorage.getItem("pscore"));
@@ -61,11 +61,34 @@ new Vue({
     }
     if(localStorage.getItem("gameOver")){
       try {
-        this.gameOver = localStorage.getItem("gameOver")
+        this.gameOver = JSON.parse(localStorage.getItem("gameOver"));
       } catch(e){
         localStorage.removeItem("gameOver")
       }
     }
+    if(localStorage.getItem("top100")) {
+      try {
+        this.top100 = localStorage.getItem("top100")
+      } catch(e){
+        localStorage.removeItem("top100")
+      }
+    }
+  },
+  beforecreated(){
+    this.gameOver = false;
+  },
+  created() {
+    if (!localStorage.top100) {
+      let defaultBoardScore = { score: 3200 };
+      let defaultBoard = [
+        defaultBoardScore
+        ];
+      for (i = 0; i < 99; i++){
+        defaultBoard.push(defaultBoardScore);
+      }
+      this.top100 = defaultBoard;
+    }
+    console.log("length: ", this.top100.length);
   },
    methods: {
      holeOne() {
@@ -132,9 +155,6 @@ new Vue({
         this.holes = 2;
         this.toTwo = true;
       }
-      
-     // console.log("Score: ", this.pscore);
-     //  console.log("Num of Holes: ", this.holes)
      if (this.pscore > this.record) {
        this.record = this.pscore;
        localStorage.setItem("record", this.record);
