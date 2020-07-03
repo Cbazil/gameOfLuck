@@ -68,7 +68,7 @@ new Vue({
     }
     if(localStorage.getItem("top100")) {
       try {
-        this.top100 = localStorage.getItem("top100")
+        this.top100 = localStorage.getItem("top100").sort(this.compare);
       } catch(e){
         localStorage.removeItem("top100")
       }
@@ -88,7 +88,6 @@ new Vue({
       }
       this.top100 = defaultBoard;
     }
-    console.log("length: ", this.top100.length);
   },
    methods: {
      holeOne() {
@@ -115,6 +114,11 @@ new Vue({
        this.pchoice = 6;
        this.compareRandom();
      },
+     compare(a,b) {
+       if(a.score < b.score) return 1;
+       if(a.score === b.score) return 0;
+       if(a.score > b.score) return -1;
+     }, 
      compareRandom() {
        let ourArr = [];
        for (i = 0; i < this.holes; i++) {
@@ -122,6 +126,14 @@ new Vue({
        };
        let ranNum = Math.ceil(Math.random() * ourArr.length);
        if (this.pchoice === ranNum) {
+         const minRecord = this.top100.slice(-1);
+         if (this.pscore > minRecord[0].score) {
+           this.top100.pop();
+           let tag = prompt("Enter Nickname...");
+           this.top100.push({ username: tag, score: this.pscore });
+           localStorage.setItem("top100", this.top100);
+         }
+         console.log(JSON.stringify(this.top100))
          this.pscore = 0;
          this.holes = 6;
          this.toFive = false;
@@ -137,8 +149,6 @@ new Vue({
          this.addAmount();
          localStorage.setItem("addOn", false);
        }
-       // console.log("pchoicee: ", this.pchoice);
-       // console.log("ranNum: ", ranNum);
       if (this.pscore > 3000) {
         this.holes = 5;
         this.toFive = true;
