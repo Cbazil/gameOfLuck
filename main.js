@@ -1,18 +1,5 @@
-/* var set = [1, 2, 3, 4, 5, 6, 7];
-console.log(Math.floor(Math.random() * set.length + 1));
-*/
-/*
-// random number between
-var randomNumber = (min, max) =>{
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-console.log(randomNumber(5, 15));
-
-*/ 
-
 localStorage.setItem("pscore", 0);
  
-
 new Vue({
   el: "#interface",
   data: {
@@ -66,27 +53,26 @@ new Vue({
         localStorage.removeItem("gameOver")
       }
     }
-    if(localStorage.getItem("top100")) {
+    if (localStorage.top100) {
       try {
-        this.top100 = localStorage.getItem("top100").sort(this.compare);
+        this.top100 = JSON.parse(localStorage.getItem("top100")).sort(this.compare);
       } catch(e){
-        localStorage.removeItem("top100")
+        localStorage.removeItem("top100");
       }
     }
   },
-  beforecreated(){
+  beforecreated() {
     this.gameOver = false;
   },
   created() {
     if (!localStorage.top100) {
       let defaultBoardScore = { score: 3200 };
-      let defaultBoard = [
-        defaultBoardScore
-        ];
-      for (i = 0; i < 99; i++){
+      let defaultBoard = [defaultBoardScore];
+      for (i = 0; i < 99; i++) {
         defaultBoard.push(defaultBoardScore);
       }
       this.top100 = defaultBoard;
+      localStorage.setItem("top100", JSON.stringify(this.top100));
     }
   },
    methods: {
@@ -131,9 +117,9 @@ new Vue({
            this.top100.pop();
            let tag = prompt("Enter Nickname...");
            this.top100.push({ username: tag, score: this.pscore });
-           localStorage.setItem("top100", this.top100);
+           this.top100 = this.top100.sort(this.compare)
+           localStorage.setItem("top100", JSON.stringify(this.top100))
          }
-         console.log(JSON.stringify(this.top100))
          this.pscore = 0;
          this.holes = 6;
          this.toFive = false;
