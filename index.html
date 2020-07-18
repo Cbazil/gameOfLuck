@@ -51,10 +51,28 @@
          <img width="80%" height="auto" src="imgs/game_over_text.png">
          <div id="endgame-btns">
            <img @click="newGame" src="imgs/play_again.png">
-           <img src="imgs/leader_board.png">
+           <img @click="checkScoreBoard" src="imgs/leader_board.png">
          </div>
        </div>
      <!-- <button @click="newGame">Play Again</button> -->
+    </div>
+    <div v-if="!scoreBoard" id="scoreCheck">
+      <div id="scoreText">Leader Board!
+        <button @click="newGame">New</button>
+      </div>
+      <div id="lead-container">
+        <div class="recordDiv" v-for="(record, idx) in top100">
+          <div class="scoreIdx">
+            <h3>#{{ idx + 1 }}</h3>
+          </div>
+          <div class="user">
+            <h3>{{ record.username }}</h3>
+           </div>
+          <div>
+            <h4>{{ record.score }}</h4>
+          </div>
+        </div>
+      </div>
     </div>
  </div>
   <!-- Project -->

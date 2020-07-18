@@ -13,6 +13,7 @@ new Vue({
     toThree: false,
     toTwo: false,
     gameOver: false,
+    scoreBoard: false,
     top100: []
   },
   mounted(){
@@ -63,6 +64,7 @@ new Vue({
   },
   beforecreated() {
     this.gameOver = false;
+    this.scoreBoard = false;
   },
   created() {
     if (!localStorage.top100) {
@@ -155,12 +157,16 @@ new Vue({
      },
      newGame() {
        this.gameOver = false;
+       this.scoreBoard = false;
        this.pscore = 0;
        this.holes = 6;
        this.toFive = false;
        this.toFour = false;
        this.toThree = false;
        this.toTwo = false;
+     },
+     checkScoreBoard() {
+       this.scoreBoard = true;
      }
    }
 })

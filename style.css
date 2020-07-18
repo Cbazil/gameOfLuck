@@ -59,7 +59,6 @@ html {
     text-align: center;
     display: inline-block;
     margin-top: 20px;
-    
   }
   #endgame-btns > img {
     width: 15%;
@@ -68,6 +67,50 @@ html {
   }
   #endgame-btns > img:hover {
     width: 16%;
+  }
+  #scoreCheck {
+    width: inherit;
+    height: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #FFFF7BFF;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    margin: 0;
+    margin-left: -8px;
+    text-align: center;
+  }
+  #scoreText {
+    width: inherit;
+    height: 6%;
+    background: #fff;
+    font-size: 28px;
+    padding-top: 10px;
+  }
+  #lead-container {
+    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    margin: 10px;
+    margin-top: 5px;
+    overflow-x: hidden;
+  }
+  .recordDiv {
+    height: inherit;
+    background: #fff;
+    border-radius: 5px;
+    margin: 1px 0px;
+    display: grid;
+    grid-template-columns: 2fr 6fr 4fr;  
+  }
+  .scoreIdx {
+    background: lightskyblue;
+  }
+  .user {
+    background: #eee;
   }
   #header {
     height: 6vh;
