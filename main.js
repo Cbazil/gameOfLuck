@@ -120,12 +120,6 @@ new Vue({
            this.top100 = this.top100.sort(this.compare)
            localStorage.setItem("top100", JSON.stringify(this.top100))
          }
-         this.pscore = 0;
-         this.holes = 6;
-         this.toFive = false;
-         this.toFour = false;
-         this.toThree = false;
-         this.toTwo = false;
          localStorage.setItem("pscore", this.pscore);
          this.gameOver = true;
        } else {
@@ -161,6 +155,12 @@ new Vue({
      },
      newGame() {
        this.gameOver = false;
+       this.pscore = 0;
+       this.holes = 6;
+       this.toFive = false;
+       this.toFour = false;
+       this.toThree = false;
+       this.toTwo = false;
      }
    }
 })

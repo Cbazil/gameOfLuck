@@ -43,7 +43,18 @@
       </div>
     </div>
     <div v-if="gameOver" id="endGame">
-      <button @click="newGame">Play Again</button>
+       <div id="outPut">
+         <h2>Final Score</h2>
+         <h1>{{ pscore }}</h1>
+       </div>
+       <div id="endGame-container">
+         <img width="80%" height="auto" src="imgs/game_over_text.png">
+         <div id="endgame-btns">
+           <img @click="newGame" src="imgs/play_again.png">
+           <img src="imgs/leader_board.png">
+         </div>
+       </div>
+     <!-- <button @click="newGame">Play Again</button> -->
     </div>
  </div>
   <!-- Project -->
