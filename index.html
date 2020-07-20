@@ -57,8 +57,15 @@
      <!-- <button @click="newGame">Play Again</button> -->
     </div>
     <div v-if="!scoreBoard" id="scoreCheck">
-      <div id="scoreText">Leader Board!
-        <button @click="newGame">New</button>
+      <div id="scoreText">
+        <div id="leaderImg">
+          <img src="imgs/leader_board_h.png">
+        </div>
+        <div id="toHome" @click="newGame">
+          <div id="homeImg">
+            <img src="imgs/menu-icon.png">
+          </div>
+        </div>
       </div>
       <div id="lead-container">
         <div class="recordDiv" v-for="(record, idx) in top100">
@@ -68,10 +75,13 @@
           <div class="user">
             <h3>{{ record.username }}</h3>
            </div>
-          <div>
+          <div class="u-score">
             <h4>{{ record.score }}</h4>
           </div>
         </div>
+      </div>
+      <div id="footer">
+        <p>&copy;cbazil 2020</p>
       </div>
     </div>
  </div>
